@@ -17,8 +17,8 @@ public class AriCalculatorProxy {
         Object proxy;
 
         ClassLoader classLoader = target.getClass().getClassLoader();
-        Class<?>[] intefaces = target.getClass().getInterfaces();
-        proxy = Proxy.newProxyInstance(classLoader, intefaces, new InvocationHandler() {
+        Class<?>[] interfaces = target.getClass().getInterfaces();
+        proxy = Proxy.newProxyInstance(classLoader, interfaces, new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 String name = method.getName();
 
