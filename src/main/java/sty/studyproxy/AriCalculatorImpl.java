@@ -2,7 +2,7 @@ package sty.studyproxy;
 
 public class AriCalculatorImpl implements AriCalculator {
     public int add(int i, int j) {
-        System.out.println("add...~");
+        System.out.println("add...~fff");
         return i + j;
     }
 
