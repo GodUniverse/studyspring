@@ -9,4 +9,8 @@ public class AriCalculatorImpl implements AriCalculator {
     public int del(int i, int j) {
         return i - j;
     }
+
+    public int mul(int i, int j) {
+        return i * j;
+    }
 }
