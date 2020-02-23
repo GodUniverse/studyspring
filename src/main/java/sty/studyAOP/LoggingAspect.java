@@ -3,15 +3,24 @@ package sty.studyAOP;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
+@Order(1) //数字越小优先级越高
 public class LoggingAspect {
+
+    /**
+     * 声明切入点表达式
+     */
+    @Pointcut("execution(* sty.studyAOP.*.*(..))")
+    public void declarePointCut(){}
+
     /**
      * 前置通知
      */
-    @Before(value = "execution(public int sty.studyAOP.AriCalculatorImpl.add(int,int))")
+    @Before(value = "declarePointCut()")
     public void beforeMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("LoggingAspect===> The Method " + methodName + " begin.");
